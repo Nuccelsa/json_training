@@ -2,7 +2,7 @@ var app = {
 
   initialize: function () {
     $('#button-character').on('click', app.showCharacters);
-    $('#button-details').on('click', app.showMore);
+    $('#button-ships').on('click', app.showShips);
   },
 
   showCharacters: function (event) {
@@ -11,27 +11,33 @@ var app = {
       success: function (data){
         // console.log(data.results["0"]);
         var data = data.results;
-        var list = $('<ul>');
-        $('#list-names').html(list);
-
+        
         for (var index = 0; index < data.length ; index++) {
           // OU : for (var index in data)
 
           // console.log(data[index].name);
           var characterNames = data[index].name;
-          var listItem = $('<li>');
+          var list = $('<ul>');
+          $('#list-names').html(list);
 
+          var listItem = $('<li>');
           listItem.text(characterNames);
           listItem.addClass('list-names-li');
+
           list.append(listItem);
         }
+        /* $('li').first().show('slow', function showNextOne() {
+          $(this).next('li').show('slow', showNextOne);
+        });   */ 
       }
     })
   },
 
-  showMore: function (event) {
-    console.log('coucou2');
-  }
+  /* showShips: function (event) {
+    
+  } */
+
+  
 }
 
 app.initialize();
