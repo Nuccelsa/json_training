@@ -9,13 +9,13 @@ var app = {
     
     $.ajax ("https://swapi.co/api/people/?format=json", {
       success: function (data){
-        // console.log(data.results["0"]);
+         //console.log(data.results["0"]);
         var data = data.results;
         
         for (var index = 0; index < data.length ; index++) {
           // OU : for (var index in data)
 
-          // console.log(data[index].name);
+           console.log(data[index].name);
           var characterNames = data[index].name;
           var list = $('<ul>');
           $('#list-names').html(list);
@@ -26,9 +26,9 @@ var app = {
 
           list.append(listItem);
         }
-        /* $('li').first().show('slow', function showNextOne() {
+         $('li').first().show('slow', function showNextOne() {
           $(this).next('li').show('slow', showNextOne);
-        });   */ 
+        });
       }
     })
   },
