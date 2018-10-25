@@ -9,33 +9,50 @@ var app = {
     
     $.ajax ("https://swapi.co/api/people/?format=json", {
       success: function (data){
-         //console.log(data.results["0"]);
-        var data = data.results;
-        
-        for (var index = 0; index < data.length ; index++) {
-          // OU : for (var index in data)
+          console.log(data.results[0].name);
+          for (var index in data) {
+              var data = data;
+              var html =
+                  `<li><span class="character-` +index + `>`
+                            + data.results[index].name +
+                        `</span></li>`;
 
-           console.log(data[index].name);
-          var characterNames = data[index].name;
-          var list = $('<ul>');
-          $('#list-names').html(list);
 
-          var listItem = $('<li>');
-          listItem.text(characterNames);
-          listItem.addClass('list-names-li');
+              $('#list-names').html($('#list-names').html() + html);
+              var listItem = $('<li>');
+              listItem.addClass('list-names-li');
+          }
 
-          list.append(listItem);
-        }
-         $('li').first().show('slow', function showNextOne() {
-          $(this).next('li').show('slow', showNextOne);
-        });
+          $('.character-' + index).on('click', app.showDetails);
       }
     })
   },
 
-  /* showShips: function (event) {
-    
-  } */
+  showDetails: function (event) {
+    var html = `<ul>
+                   <li>
+                       Couleurs des yeux :`
+                        + data.results[index].eye_color +
+                   `</li>
+                    <li>
+                       Couleurs des cheveux :`
+                        + data.results[index].hair_color +
+                   `</li>
+                   <li>
+                       Taille :`
+                        + data.results[index].height +
+                   `</li>
+                   <li>
+                       Poids :`
+                        + data.results[index].mass +
+                   `</li>
+                </ul>`;
+
+  }
+
+/* showShips: function (event) {
+
+} */
 
   
 }
