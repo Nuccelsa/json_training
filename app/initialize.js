@@ -8,9 +8,9 @@ var app = {
   showCharacters: function (event) {
     
     $.ajax ("https://swapi.co/api/people/?format=json", {
-      success: function (data){
+      success: function (datas){
         // console.log(data.results["0"]);
-        var data = data.results;
+        var data = datas.results;
         
         for (var index = 0; index < data.length ; index++) {
           // OU : for (var index in data)
@@ -26,9 +26,9 @@ var app = {
 
           list.append(listItem);
         }
-        /* $('li').first().show('slow', function showNextOne() {
+         $('li').first().show('slow', function showNextOne() {
           $(this).next('li').show('slow', showNextOne);
-        });   */ 
+        });   
       }
     })
   },
@@ -40,4 +40,4 @@ var app = {
   
 }
 
-app.initialize();
+$(app.initialize);
