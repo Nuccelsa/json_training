@@ -17,6 +17,8 @@
     "browser-sync-brunch": "0.0.9",
     "brunch": "^2",
     "clean-css-brunch": "^2",
-    "uglify-js-brunch": "^2"
+    "uglify-js-brunch": "^2",
+    "pleeease-brunch": "^3.0.0",
+    "sass-brunch": "git+https://github.com/brunch/sass-brunch.git"
   }
 }

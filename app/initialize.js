@@ -6,36 +6,51 @@ var app = {
   },
 
   showCharacters: function (event) {
-    
+
     $.ajax ("https://swapi.co/api/people/?format=json", {
       success: function (datas){
-        // console.log(data.results["0"]);
+        // console.log(data.results[0].name);
         var data = datas.results;
-        
+          
         for (var index = 0; index < data.length ; index++) {
-          // OU : for (var index in data)
-
-          // console.log(data[index].name);
           var characterNames = data[index].name;
-          var list = $('<ul>');
-          $('#list-names').html(list);
+          var ul = $('.list-names');
+          var li = $('<li>');
+          
+          ul.append(li);
+          li.text(characterNames).addClass('name');
+        }  
 
-          var listItem = $('<li>');
-          listItem.text(characterNames);
-          listItem.addClass('list-names-li');
-
-          list.append(listItem);
         }
-         $('li').first().show('slow', function showNextOne() {
-          $(this).next('li').show('slow', showNextOne);
-        });   
-      }
-    })
-  },
+      })
 
-  /* showShips: function (event) {
-    
-  } */
+    },
+
+  showDetails: function (event) {
+    var html = `<ul>
+                   <li>
+                       Couleurs des yeux :`
+                        + data.results[index].eye_color +
+                   `</li>
+                    <li>
+                       Couleurs des cheveux :`
+                        + data.results[index].hair_color +
+                   `</li>
+                   <li>
+                       Taille :`
+                        + data.results[index].height +
+                   `</li>
+                   <li>
+                       Poids :`
+                        + data.results[index].mass +
+                   `</li>
+                </ul>`;
+
+  }
+
+/* showShips: function (event) {
+
+} */
 
   
 }

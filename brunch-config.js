@@ -1,4 +1,3 @@
-// See http://brunch.io for documentation.
 exports.files = {
   javascripts: {
     joinTo: {
@@ -8,7 +7,6 @@ exports.files = {
   },
   stylesheets: {
     joinTo: {
-      'css/vendor.css': /^(?!app)/,
       'css/app.css': /^app/
     }
   }
