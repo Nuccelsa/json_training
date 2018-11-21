@@ -46,16 +46,20 @@ li {
         .list-names {
             color: rgb(102, 89, 89);
             font-style: italic;
-            li {
+            .name {
                 cursor:pointer;
-                margin:1em 0;
+                margin:1.2em 0em;
+                
+            }
+            ul {
+                li{
+                    margin: .1em 0 .3em 1em;
+                    color:#053d86;
+                    font-style: normal;
+                }
             }
         }
-
-    }
-   
-      
-      
+    }     
 }
 
   
