@@ -5,4 +5,5 @@ Récupération de JSON depuis SWAPI.
 *Stack*
 - Brunch.io
 - SASS
-- jQuery
+- jQuery (Ajax Request)
+- HTML
