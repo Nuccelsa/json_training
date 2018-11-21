@@ -5,50 +5,51 @@ var app = {
   },
 
   showCharacters: function (event) {
-
     $.ajax ("https://swapi.co/api/people/?format=json", {
       success: function (datas){ 
   
         var data = datas.results;
-
-        for (var index = 0; index < data.length ; index++) {
-          var characterNames = data[index].name;
-          var ul = $('.list-names');
-          var li = $(`<li id="name-`+ index + `">`);
-          li.text(characterNames).addClass('name');
-          ul.append(li);
-          
-          var html = 
-              `<ul>
-                  <li>
-                      Eye color : `
-                      + data[index].eye_color +
-                  `</li>
-                  <li>
-                      Hair color : `
-                      + data[index].hair_color +
-                  `</li>
-                  <li>
-                      Birthday : `
-                      + data[index].birth_year +
-                  `</li>
-              </ul>`;
-          li.append(html);
-
-          $('.name').children().css('display', 'none');
-        }  
+        app.loop(data);
         $('.name').on('click', app.showMore);
-    
+     
       } // success
     }) // ajax
-  }, // showCharacters
+  }, // showCharacters()
+
+  loop: function(data){
+    var ul = $('<ul class=list-names>');
+    $('.lists').html(ul);
+
+    for (var index = 0; index < data.length ; index++) {
+      var characterNames = data[index].name;
+      var li = $(`<li id="name-`+ index + `">`);
+      li.text(characterNames).addClass('name');
+      ul.append(li);
+      
+      var html = 
+          `<ul>
+              <li>
+                  Eye color : `
+                  + data[index].eye_color +
+              `</li>
+              <li>
+                  Hair color : `
+                  + data[index].hair_color +
+              `</li>
+              <li>
+                  Birthday : `
+                  + data[index].birth_year +
+              `</li>
+          </ul>`;
+      li.append(html);
+
+      $('.name').children().css('display', 'none');
+    }  // for
+  }, // loop()
 
   showMore: function (evt) {
     $(this).children().css('display', 'block');
-    $(this).on('click', function(){
-        $(this).children().hide();
-    })
-  }
-} // app
+  } // showMore()
 
+} // app
 $(app.initialize);

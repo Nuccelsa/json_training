@@ -1,18 +1,16 @@
 li {
     list-style:none;
-  }
-  ul {
+}
+ul {
     padding: 0;
     margin: 0;
-  }
-  a {
+}
+a {
     text-decoration: none;
-  }
-  a:visited {
-    color: #7eaeec
-  }
+}
+
   
-  .wrap {
+.wrapper {
     width : 1000px;
     margin: 7em auto;
 
@@ -41,8 +39,8 @@ li {
         justify-content: center;
         margin: 2em 0;
     }
+    
     .lists {
-
         .list-names {
             color: rgb(102, 89, 89);
             font-style: italic;

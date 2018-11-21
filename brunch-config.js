@@ -7,6 +7,7 @@ exports.files = {
   },
   stylesheets: {
     joinTo: {
+      'css/app.css': /^app/,
       'css/app.css': /^app/
     }
   }
